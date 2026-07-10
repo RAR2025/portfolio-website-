@@ -1,4 +1,4 @@
-import { Navbar } from './components/Navbar/Navbar';
+import { Navbar } from './components/navbar/Navbar';
 import { Hero } from './components/hero/Hero';
 import { About } from './components/about/About';
 import { Education } from './components/Education/Education';
