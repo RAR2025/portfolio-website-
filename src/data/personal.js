@@ -36,7 +36,7 @@ export const personal = {
   email: 'ruturaj.rajwade@gmail.com',
   phone: '+91 7718979134',
   location: 'Mumbai, India',
-  resumeUrl: '/documents/resume-rar1.pdf',
+  resumeUrl: 'https://docs.google.com/document/d/1EPR84TF2ctHXiXErZgIPFqNjkSHmnRM7cMI-n4FqdUk/edit?usp=sharing',
   photo: profilePhoto,
   socials: {
     github1: 'https://github.com/RAR2025',

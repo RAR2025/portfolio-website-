@@ -58,20 +58,6 @@ export const documents = [
     thumbnail: '/documents/rar2026-back-end-development-using-node-js.pdf',
   },
   {
-    id: 'doc-css',
-    title: 'CSS Certificate',
-    type: 'Certificate',
-    fileUrl: '/documents/rar2026-css.pdf',
-    thumbnail: '/documents/rar2026-css.pdf',
-  },
-  {
-    id: 'doc-html',
-    title: 'HTML Certificate',
-    type: 'Certificate',
-    fileUrl: '/documents/rar2026-html.pdf',
-    thumbnail: '/documents/rar2026-html.pdf',
-  },
-  {
     id: 'doc-javascript',
     title: 'JavaScript Certificate',
     type: 'Certificate',
