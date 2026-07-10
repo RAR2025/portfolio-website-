@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { personal } from '../../data/personal';
 import { useReveal } from '../../hooks/useReveal';
+import fallbackPhoto from '../../assets/images/profile.svg';
 
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
@@ -10,7 +11,7 @@ export const LinkedInIcon = () => <FaLinkedin size={18} />;
 export const TwitterIcon = () => <FaXTwitter size={18} />;
 export const MailIcon = () => <MdEmail size={18} />;
 
-const FALLBACK_PHOTO = '/src/assets/images/profile.svg';
+const FALLBACK_PHOTO = fallbackPhoto;
 export function Hero() {
   const [ref, visible] = useReveal();
   const [imgSrc, setImgSrc] = useState(personal.photo || FALLBACK_PHOTO);

@@ -1,8 +1,15 @@
+import emailProjectThumbnail from '../assets/images/email-project.png';
+import questionMeThumbnail from '../assets/images/question-me-1-0-project.png';
+import newsTelegramBotThumbnail from '../assets/images/news-telegram-bot.png';
+import garbageProjectThumbnail from '../assets/images/garbage-project.png';
+import ecomProjectThumbnail from '../assets/images/ecom-project.png';
+import fitnessTrackerThumbnail from '../assets/images/fitness-tracker-project.png';
+
 export const projects = [
   {
     id: 'proj-1',
     title: 'Email spam detctor',
-    thumbnail: '/src/assets/images/Email project.png',
+    thumbnail: emailProjectThumbnail,
     description:
       // 'A web app that scores resumes against job descriptions using NLP similarity and keyword matching. Built with FastAPI and a React frontend.',
       'A spam classifier that uses a Contextual Bandit (a reinforcement-learning formulation) to label emails/SMS as spam or ham, wrapped in an interactive Streamlit dashboard with rich data and model statistics.',
@@ -14,7 +21,7 @@ export const projects = [
   {
     id: 'proj-2',
     title: 'Question Me 1.0',
-    thumbnail: '/src/assets/images/Question me 1.0 project.png',
+    thumbnail: questionMeThumbnail,
     description:
       // 'End-to-end ML pipeline that predicts student outcomes from demographic and behavioural features. Includes EDA, model comparison, and a small dashboard.',
       'A simple Retrieval-Augmented Generation (RAG) application built using LangChain, ChromaDB, and Ollama. This project allows you to ask questions about your own PDF documents completely offline using local AI models.',
@@ -26,7 +33,7 @@ export const projects = [
   {
     id: 'proj-3',
     title: 'News Telegram Bot',
-    thumbnail: 'src/assets/images/News Telegram Bot.png',
+    thumbnail: newsTelegramBotThumbnail,
     description:
     // 'RESTful task management API with JWT authentication, role-based access, and a clean Express + MongoDB backend.',
     'A simple Telegram bot built with FastAPI and Python Telegram Bot that fetches the latest India-related news using the NewsAPI and sends curated headlines directly to Telegram.',
@@ -38,7 +45,7 @@ export const projects = [
   {
     id: 'proj-4',
     title: 'Garbage Project',
-    thumbnail: 'src/assets/images/Garbage Project.png',
+    thumbnail: garbageProjectThumbnail,
     description:
       // 'End-to-end ML pipeline that predicts student outcomes from demographic and behavioural features. Includes EDA, model comparison, and a small dashboard.',
       // 'A simple Retrieval-Augmented Generation (RAG) application built using LangChain, ChromaDB, and Ollama. This project allows you to ask questions about your own PDF documents completely offline using local AI models.',
@@ -51,7 +58,7 @@ export const projects = [
   {
     id: 'proj-5',
     title: 'ECOM',
-    thumbnail: 'src/assets/images/ecom project.png',
+    thumbnail: ecomProjectThumbnail,
     description:
       // 'End-to-end ML pipeline that predicts student outcomes from demographic and behavioural features. Includes EDA, model comparison, and a small dashboard.',
       // 'A simple Retrieval-Augmented Generation (RAG) application built using LangChain, ChromaDB, and Ollama. This project allows you to ask questions about your own PDF documents completely offline using local AI models.',
@@ -64,7 +71,7 @@ export const projects = [
   {
     id: 'proj-6',
     title: 'Fitness Tracker',
-    thumbnail: '/src/assets/images/Fitness Tracker project.png',
+    thumbnail: fitnessTrackerThumbnail,
     description:
       // 'This very site. A modern, accessible single-page portfolio built with React, Vite, and plain CSS.',
       'A simple and beginner-friendly Fitness Tracker web application built with Python and Django. This application allows users to log workouts, track exercise duration, record workout dates, and view all workout history in an organized interface.',

@@ -7,8 +7,8 @@ export const achievements = [
     description:
       'The competition focused on designing, implementing, and evaluating data-driven predictive models through a real-world data science workflow, including problem framing, data preprocessing, model development, and performance evaluation. All tasks were completed exclusively on the Zerve AI platform.',
     date: '23rd December 2025',
-    image: 'achievements/ZerveAiImage.png',
-    certificate: '/certificates/Zerve ai datathon certificate.jpeg',
+    image: '/achievements/zerve-ai-image.png',
+    certificate: '/certificates/zerve-ai-datathon-certificate.jpeg',
   },
   {
     id: 'ach-2',
@@ -18,8 +18,8 @@ export const achievements = [
     description:
     'Developed a multilingual WhatsApp chatbot (Gujarati, Hindi, and English) for the Smart Vadodara: VMC Innovate track to resolve citizen queries and securely distribute property tax bills, focusing on regional NLP, data security, and a seamless user experience.',
     date: '23rd - 24th January 2026',
-    image: 'achievements/parulhackathonimg.png',
-    certificate: '/certificates/pu code hackathon certificate.jpeg',
+    image: '/achievements/parul-hackathon-img.png',
+    certificate: '/certificates/pu-code-hackathon-certificate.jpeg',
   },
   {
     id: 'ach-3',
@@ -29,7 +29,7 @@ export const achievements = [
     description:
     'Built a centralized animal rescue platform that enables citizens to report injured or abandoned animals with precise locations, helping NGOs receive, track, and coordinate rescue requests efficiently for faster response times.',
     date: '17th - 18th March 2026 ',
-    image: 'achievements/Syrusimage.jpeg',
-    certificate: '/certificates/Syrus 2026 Certificate.pdf',
+    image: '/achievements/syrus-image.jpeg',
+    certificate: '/certificates/syrus-2026-certificate.pdf',
   },
 ];

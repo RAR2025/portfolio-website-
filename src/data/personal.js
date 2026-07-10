@@ -1,3 +1,5 @@
+import profilePhoto from '../assets/images/my-photo-for-website.jpeg';
+
 export const personal = {
   name: 'Ruturaj Amit Rajwade',
   title: 'BTech CSE Student | Aspiring Software Engineer',
@@ -34,8 +36,8 @@ export const personal = {
   email: 'ruturaj.rajwade@gmail.com',
   phone: '+91 7718979134',
   location: 'Mumbai, India',
-  resumeUrl: 'documents/Resume RAR1.pdf',
-  photo: 'src/assets/images/my photo for website.jpeg',
+  resumeUrl: '/documents/resume-rar1.pdf',
+  photo: profilePhoto,
   socials: {
     github1: 'https://github.com/RAR2025',
     github2: 'https://github.com/RAR2026',
