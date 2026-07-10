@@ -48,12 +48,6 @@ export function Contact() {
           ) : null}
 
           <div className="contact__actions">
-            <a
-              className="btn btn--primary"
-              href={`mailto:${personal.email}`}
-            >
-              Send Email
-            </a>
             {personal.email ? (
               <button
                 type="button"
