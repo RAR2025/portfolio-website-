@@ -33,8 +33,8 @@ export const personal = {
     'Develop Something that world has never seen before....',
   email: 'ruturaj.rajwade@gmail.com',
   phone: '+91 7718979134',
-  location: 'India',
-  resumeUrl: '',
+  location: 'Mumbai, India',
+  resumeUrl: 'documents/Resume RAR1.pdf',
   photo: 'src/assets/images/my photo for website.jpeg',
   socials: {
     github1: 'https://github.com/RAR2025',

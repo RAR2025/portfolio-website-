@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ruturaj Amit Rajwade — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --accent: #2079c7;
+    --muted: #666666;
+    --text: #000000;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: var(--text);
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    padding: 0.4in 0.6in;
+    background: #ffffff;
+  }
+
+  table.resume {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  table.resume > tbody > tr > td {
+    vertical-align: top;
+    padding: 10px;
+  }
+
+  table.resume > tbody > tr > td.left {
+    width: 68%;
+    border-right: 1px solid #000;
+  }
+
+  table.resume > tbody > tr > td.right {
+    width: 32%;
+  }
+
+  table.resume > tbody > tr.header > td {
+    border-bottom: 1px solid #000;
+  }
+
+  .name {
+    font-size: 36pt;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .title {
+    font-family: "Open Sans", sans-serif;
+    color: #000;
+    font-size: 11pt;
+    margin: 4px 0 0 0;
+  }
+
+  .contact {
+    font-family: "Open Sans", sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    text-align: left;
+  }
+  .contact p { margin: 0; }
+  .contact .bold { font-weight: 700; }
+
+  h2.section {
+    font-family: "Open Sans", sans-serif;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 2px;
+    margin: 14px 0 8px 0;
+  }
+  h2.section:first-of-type { margin-top: 0; }
+
+  h3.entry {
+    font-weight: 700;
+    font-size: 11pt;
+    margin: 8px 0 0 0;
+    color: #000;
+  }
+  h3.entry .role {
+    font-weight: 400;
+    font-style: italic;
+    color: #000;
+  }
+  h3.entry .sep {
+    font-weight: 400;
+    color: #000;
+  }
+
+  .period {
+    font-family: "Open Sans", sans-serif;
+    color: var(--muted);
+    font-size: 9pt;
+    margin: 0 0 4px 0;
+  }
+
+  p.bullet, p.desc, ul.bullets {
+    margin: 0 0 6px 0;
+  }
+
+  ul.bullets {
+    list-style: disc;
+    padding-left: 18px;
+  }
+  ul.bullets li {
+    margin: 0 0 3px 0;
+  }
+
+  ul.skills {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 0;
+  }
+  ul.skills li { margin: 0 0 4px 0; }
+
+  .skill-group {
+    margin: 0 0 6px 0;
+  }
+  .skill-group .label {
+    font-weight: 700;
+    color: #000;
+  }
+
+  .award {
+    margin: 0 0 8px 0;
+  }
+  .award .title {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 10pt;
+    color: #000;
+  }
+  .award .meta {
+    color: var(--muted);
+    font-size: 9pt;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  @media print {
+    @page {
+      size: Letter;
+      margin: 0.4in 0.6in;
+    }
+    html, body { background: #fff; }
+    .page { width: 100%; min-height: 0; padding: 0; margin: 0; }
+    table.resume > tbody > tr > td { padding: 8px; }
+    h2.section { page-break-after: avoid; }
+    h3.entry, .period, .award { page-break-after: avoid; }
+    p, ul { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<table class="resume">
+  <tbody>
+    <!-- HEADER -->
+    <tr class="header">
+      <td class="left">
+        <h1 class="name">Ruturaj Amit Rajwade</h1>
+        <p class="title">BTech CSE Student | Aspiring Software Engineer</p>
+      </td>
+      <td class="right">
+        <div class="contact">
+          <p>Thane, Maharashtra, India</p>
+          <p>+91 7718979134</p>
+          <p class="bold"><a href="mailto:ruturaj.rajwade@gmail.com">ruturaj.rajwade@gmail.com</a></p>
+          <p class="bold"><a href="https://github.com/RAR2025" target="_blank" rel="noreferrer">github.com/RAR2025</a></p>
+          <p class="bold"><a href="https://www.linkedin.com/in/ruturaj-rajwade-558551322/" target="_blank" rel="noreferrer">linkedin.com/in/ruturaj-rajwade-558551322</a></p>
+        </div>
+      </td>
+    </tr>
+
+    <!-- BODY -->
+    <tr>
+      <!-- LEFT COLUMN -->
+      <td class="left">
+        <h2 class="section">Experience</h2>
+
+        <h3 class="entry">Zerve AI Datathon <span class="sep">—</span> <span class="role">3rd Place, TechFest IIT Bombay</span></h3>
+        <p class="period">December 2025</p>
+        <p class="desc">Designed, implemented, and evaluated data-driven predictive models through a real-world data science workflow including problem framing, data preprocessing, model development, and performance evaluation, executed entirely on the Zerve AI platform.</p>
+
+        <h3 class="entry">Parul University Code Hackathon 3.0 <span class="sep">—</span> <span class="role">Finalist (Smart Vadodara: VMC Innovate)</span></h3>
+        <p class="period">January 2026</p>
+        <p class="desc">Developed a multilingual WhatsApp chatbot (Gujarati, Hindi, and English) to resolve citizen queries and securely distribute property tax bills, with a focus on regional NLP, data security, and a seamless user experience.</p>
+
+        <h3 class="entry">Syrus 2026 VESIT Hackathon <span class="sep">—</span> <span class="role">Top 10 Finalist</span></h3>
+        <p class="period">March 2026</p>
+        <p class="desc">Built a centralized animal rescue platform that enables citizens to report injured or abandoned animals with precise locations, helping NGOs receive, track, and coordinate rescue requests efficiently for faster response times.</p>
+
+        <h2 class="section">Education</h2>
+
+        <h3 class="entry">Vivekanand Education Society's Institute of Technology (VESIT) <span class="sep">—</span> <span class="role">B.Tech, Computer Science and Engineering</span></h3>
+        <p class="period">2024 — 2028</p>
+        <p class="desc">SGPI: 10.00 (Sem 1) · 9.82 (Sem 2) · 9.80 (Sem 3) · 9.08 (Sem 4). Consistently strong academic performance across core computer science coursework.</p>
+
+        <h3 class="entry">Bandodkar College of Science, Thane <span class="sep">—</span> <span class="role">Higher Secondary (Class XII) — Science (PCM with CS)</span></h3>
+        <p class="period">2022 — 2024</p>
+        <p class="desc">Percentage: 83.5%.</p>
+
+        <h3 class="entry">VPM's Sou A. K. Joshi English Medium School, Thane <span class="sep">—</span> <span class="role">Secondary (Class X), State Board</span></h3>
+        <p class="period">March 2022</p>
+        <p class="desc">Percentage: 94%.</p>
+
+        <h2 class="section">Projects</h2>
+
+        <h3 class="entry">Email Spam Detector <span class="sep">—</span> <span class="role">Contextual Bandit, Streamlit</span></h3>
+        <p class="desc">A spam classifier that uses a Contextual Bandit (a reinforcement-learning formulation) to label emails/SMS as spam or ham, wrapped in an interactive Streamlit dashboard with rich data and model statistics. <a href="https://github.com/RAR2025/Email_spam_detector" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://rar-email-spam-detector.streamlit.app/" target="_blank" rel="noreferrer">Live</a></p>
+
+        <h3 class="entry">Question Me 1.0 <span class="sep">—</span> <span class="role">RAG with LangChain, ChromaDB, Ollama</span></h3>
+        <p class="desc">A Retrieval-Augmented Generation application that lets you ask questions about your own PDF documents completely offline using local AI models (Qwen 3.5 0.8B, nomic-embed-text). <a href="https://github.com/RAR2025/Question-me-1.0" target="_blank" rel="noreferrer">GitHub</a></p>
+
+        <h3 class="entry">News Telegram Bot <span class="sep">—</span> <span class="role">FastAPI, Python Telegram Bot, NewsAPI</span></h3>
+        <p class="desc">A Telegram bot that fetches the latest India-related news using the NewsAPI and delivers curated headlines directly to Telegram. <a href="https://github.com/RAR2025/News-telegram-bot" target="_blank" rel="noreferrer">GitHub</a></p>
+
+        <h3 class="entry">Garbage Collection Route Optimizer <span class="sep">—</span> <span class="role">Django, A* Algorithm, SQLite</span></h3>
+        <p class="desc">A Django-based route optimization system that uses the A* Search Algorithm to plan efficient garbage collection routes across multiple shop locations in a city. <a href="https://github.com/RAR2025/Garbage-project" target="_blank" rel="noreferrer">GitHub</a></p>
+
+        <h3 class="entry">ECOM <span class="sep">—</span> <span class="role">Django, SQLite, HTML/CSS/JS</span></h3>
+        <p class="desc">A Django e-commerce website with product listing, shopping cart, and checkout functionality. <a href="https://github.com/RAR2025/ECOM" target="_blank" rel="noreferrer">GitHub</a></p>
+
+        <h3 class="entry">Fitness Tracker <span class="sep">—</span> <span class="role">Django, SQLite, HTML/CSS/JS</span></h3>
+        <p class="desc">A web app that lets users log workouts, track exercise duration, record workout dates, and view all workout history in an organized interface. <a href="https://github.com/RAR2025/Fitness-tracker" target="_blank" rel="noreferrer">GitHub</a></p>
+      </td>
+
+      <!-- RIGHT COLUMN -->
+      <td class="right">
+        <h2 class="section">Skills</h2>
+
+        <div class="skill-group"><span class="label">Languages:</span> Java, Python, JavaScript, HTML5, CSS3, SQL</div>
+        <div class="skill-group"><span class="label">Frameworks &amp; Libraries:</span> React, Express.js, FastAPI, Django, Vite</div>
+        <div class="skill-group"><span class="label">DSA &amp; Problem Solving:</span> Java (DSA), LeetCode, Algorithms</div>
+        <div class="skill-group"><span class="label">Machine Learning:</span> NumPy, Pandas, Scikit-learn, Matplotlib</div>
+        <div class="skill-group"><span class="label">AI Tools:</span> GitHub Copilot, Antigravity, Opencode, Claude Code, Kiro, Google AI Studio</div>
+        <div class="skill-group"><span class="label">Tools &amp; Platforms:</span> Git &amp; GitHub, VS Code, Linux, Figma, Canva</div>
+
+        <h2 class="section">Awards</h2>
+
+        <div class="award">
+          <div class="title">3rd Place — Zerve AI Datathon</div>
+          <div class="meta">TechFest IIT Bombay · Dec 2025</div>
+        </div>
+        <div class="award">
+          <div class="title">Finalist — PU Code Hackathon 3.0</div>
+          <div class="meta">Parul University · Jan 2026</div>
+        </div>
+        <div class="award">
+          <div class="title">Top 10 Finalist — Syrus 2026 VESIT Hackathon</div>
+          <div class="meta">VESIT · Mar 2026</div>
+        </div>
+
+        <h2 class="section">Profiles</h2>
+        <ul class="skills">
+          <li><strong>LeetCode:</strong> 177 problems solved · Rating 1406 · <a href="https://leetcode.com/u/RAR2025/" target="_blank" rel="noreferrer">RAR2025</a></li>
+          <li><strong>CodeChef:</strong> Diamond League · <a href="https://www.codechef.com/users/rar2026" target="_blank" rel="noreferrer">rar2026</a></li>
+          <li><strong>GitHub:</strong> 501 contributions · <a href="https://github.com/RAR2025" target="_blank" rel="noreferrer">RAR2025</a></li>
+        </ul>
+
+        <h2 class="section">Languages</h2>
+        <ul class="skills">
+          <li>English — Professional working proficiency</li>
+          <li>Hindi — Native proficiency</li>
+          <li>Marathi — Native proficiency</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
