@@ -20,4 +20,4 @@ export const BREAKPOINTS = {
   mobile: 480,
 };
 
-export const PERSONAL_NAME = 'Your Name';
+export const PERSONAL_NAME = 'Ruturaj Amit Rajwade';
