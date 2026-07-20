@@ -65,79 +65,81 @@ export function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="navbar" role="banner">
-      <div className="container navbar__inner">
-        <a
-          href="#home"
-          className="navbar__brand"
-          onClick={(e) => handleNavClick(e, 'home')}
-          aria-label="Go to top"
-        >
-          <span className="navbar__brand-mark" aria-hidden="true">
-            RAR
-          </span>
-          <span>Ruturaj Rajwade</span>
-        </a>
-
-        <nav className="navbar__list" aria-label="Primary navigation">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`navbar__link${
-                activeId === item.id ? ' navbar__link--active' : ''
-              }`}
-              onClick={(e) => handleNavClick(e, item.id)}
-              aria-current={activeId === item.id ? 'true' : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="navbar__actions">
-          <button
-            type="button"
-            className="navbar__toggle"
-            onClick={() => setIsOpen((prev) => !prev)}
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isOpen}
+    <>
+      <header className="navbar" role="banner">
+        <div className="container navbar__inner">
+          <a
+            href="#home"
+            className="navbar__brand"
+            onClick={(e) => handleNavClick(e, 'home')}
+            aria-label="Go to top"
           >
-            {isOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
-        </div>
-      </div>
+            <span className="navbar__brand-mark" aria-hidden="true">
+              RAR
+            </span>
+            <span>Ruturaj Rajwade</span>
+          </a>
 
-      <div
-        className={`navbar__mobile${isOpen ? ' navbar__mobile--open' : ''}`}
-      >
-        <div className="container">
-          <ul className="navbar__mobile-list">
+          <nav className="navbar__list" aria-label="Primary navigation">
             {NAV_ITEMS.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  className={`navbar__link${
-                    activeId === item.id ? ' navbar__link--active' : ''
-                  }`}
-                  onClick={(e) => {
-                    handleNavClick(e, item.id);
-                    closeMenu();
-                  }}
-                >
-                  {item.label}
-                </a>
-              </li>
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`navbar__link${
+                  activeId === item.id ? ' navbar__link--active' : ''
+                }`}
+                onClick={(e) => handleNavClick(e, item.id)}
+                aria-current={activeId === item.id ? 'true' : undefined}
+              >
+                {item.label}
+              </a>
             ))}
-          </ul>
+          </nav>
+
+          <div className="navbar__actions">
+            <button
+              type="button"
+              className="navbar__toggle"
+              onClick={() => setIsOpen((prev) => !prev)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
         </div>
-      </div>
+
+        <div
+          className={`navbar__mobile${isOpen ? ' navbar__mobile--open' : ''}`}
+        >
+          <div className="container">
+            <ul className="navbar__mobile-list">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`navbar__link${
+                      activeId === item.id ? ' navbar__link--active' : ''
+                    }`}
+                    onClick={(e) => {
+                      handleNavClick(e, item.id);
+                      closeMenu();
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </header>
 
       <div
         className={`navbar__overlay${isOpen ? ' navbar__overlay--visible' : ''}`}
         onClick={closeMenu}
         aria-hidden="true"
       />
-    </header>
+    </>
   );
 }
