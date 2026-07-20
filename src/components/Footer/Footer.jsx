@@ -1,13 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { personal } from '../../data/personal';
 
 export function Footer() {
   const [showTop, setShowTop] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+  const footerRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 400);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const el = footerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   const handleTop = () => {
@@ -18,7 +31,7 @@ export function Footer() {
 
   return (
     <>
-      <footer className="footer" role="contentinfo">
+      <footer className="footer" role="contentinfo" ref={footerRef}>
         <div className="container footer__inner">
           <p className="footer__copy">
             © {year} {personal.name}. All rights reserved.
@@ -28,7 +41,7 @@ export function Footer() {
 
       <button
         type="button"
-        className={`footer__top${showTop ? ' footer__top--visible' : ''}`}
+        className={`footer__top${showTop ? ' footer__top--visible' : ''}${footerVisible ? ' footer__top--hidden' : ''}`}
         onClick={handleTop}
         aria-label="Scroll to top"
       >

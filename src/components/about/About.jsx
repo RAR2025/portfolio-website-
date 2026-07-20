@@ -5,19 +5,28 @@ export function About() {
   const [ref, visible] = useReveal();
 
   return (
-    <section id="about" className="section section--alt" ref={ref}>
+    <section id="about" className="section section--md section--alt" ref={ref}>
       <div className={`container reveal${visible ? ' reveal--visible' : ''}`}>
         <span className="section-title-eyebrow">About</span>
-        <h2 className="section-title">A bit about me</h2>
-        <p className="section-subtitle">
+        <h2 className="section-title section-title--left">A bit about me</h2>
+        <p className="section-subtitle section-subtitle--left">
           Curious learner, builder, and lifelong student of computer science.
         </p>
         <div className="about__grid">
 
           <div className="about__bio">
-            {personal.bio.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            {personal.bio.map((paragraph, index) => {
+              const dotIndex = paragraph.indexOf('. ');
+              const hasLead = dotIndex !== -1 && dotIndex < 120;
+              const lead = hasLead ? paragraph.slice(0, dotIndex + 1) : '';
+              const rest = hasLead ? paragraph.slice(dotIndex + 1) : paragraph;
+              return (
+                <p key={index}>
+                  {hasLead ? <span className="about__bio-lead">{lead}</span> : null}
+                  {rest}
+                </p>
+              );
+            })}
           </div>
 
           <aside className="about__sidebar">

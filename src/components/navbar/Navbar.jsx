@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NAV_ITEMS } from '../../utils/constants';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
-import { ThemeToggle } from './ThemeToggle';
-
 function MenuIcon() {
   return (
     <svg
@@ -69,7 +67,7 @@ export function Navbar() {
   return (
     <header className="navbar" role="banner">
       <div className="container navbar__inner">
-        {/* <a
+        <a
           href="#home"
           className="navbar__brand"
           onClick={(e) => handleNavClick(e, 'home')}
@@ -79,7 +77,7 @@ export function Navbar() {
             RAR
           </span>
           <span>Ruturaj Rajwade</span>
-        </a> */}
+        </a>
 
         <nav className="navbar__list" aria-label="Primary navigation">
           {NAV_ITEMS.map((item) => (
@@ -98,7 +96,6 @@ export function Navbar() {
         </nav>
 
         <div className="navbar__actions">
-          <ThemeToggle />
           <button
             type="button"
             className="navbar__toggle"
@@ -135,6 +132,12 @@ export function Navbar() {
           </ul>
         </div>
       </div>
+
+      <div
+        className={`navbar__overlay${isOpen ? ' navbar__overlay--visible' : ''}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
     </header>
   );
 }

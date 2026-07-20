@@ -1,7 +1,7 @@
 const FALLBACK_THUMB =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240"><rect width="400" height="240" fill="#cbd5e1"/><text x="200" y="130" text-anchor="middle" font-family="Poppins,sans-serif" font-size="18" fill="#475569">Project Preview</text></svg>`
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240"><rect width="400" height="240" fill="#0B0D06"/><text x="200" y="130" text-anchor="middle" font-family="Poppins,sans-serif" font-size="18" fill="#B89B6F">Project Preview</text></svg>`
   );
 
 export function Projectcard({ project }) {

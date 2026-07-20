@@ -24,7 +24,7 @@ export function AchievementCard({ achievement }) {
               href={achievement.certificate}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ marginLeft: '0.75rem', color: 'var(--primary)' }}
+              style={{ marginLeft: '0.75rem', color: 'var(--accent-primary)' }}
             >
               View Certificate
             </a>

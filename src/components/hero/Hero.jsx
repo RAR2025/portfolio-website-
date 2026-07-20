@@ -3,14 +3,6 @@ import { personal } from '../../data/personal';
 import { useReveal } from '../../hooks/useReveal';
 import fallbackPhoto from '../../assets/images/profile.svg';
 
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
-
-export const GitHubIcon = () => <FaGithub size={18} />;
-export const LinkedInIcon = () => <FaLinkedin size={18} />;
-export const TwitterIcon = () => <FaXTwitter size={18} />;
-export const MailIcon = () => <MdEmail size={18} />;
-
 const FALLBACK_PHOTO = fallbackPhoto;
 export function Hero() {
   const [ref, visible] = useReveal();
@@ -51,61 +43,7 @@ export function Hero() {
               </button>
             </div>
 
-            <div className="hero__socials">
-              {personal.socials.github1 ? (
-                <a
-                  href={personal.socials.github1}
-                  className="hero__social"
-                  aria-label="GitHub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GitHubIcon />
-                </a>
-              ) : null}
-              {personal.socials.github2 ? (
-                <a
-                  href={personal.socials.github2}
-                  className="hero__social"
-                  aria-label="GitHub"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GitHubIcon />
-                </a>
-              ) : null}
-              {personal.socials.linkedin ? (
-                <a
-                  href={personal.socials.linkedin}
-                  className="hero__social"
-                  aria-label="LinkedIn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <LinkedInIcon />
-                </a>
-              ) : null}
-              {personal.socials.twitter ? (
-                <a
-                  href={personal.socials.twitter}
-                  className="hero__social"
-                  aria-label="Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <TwitterIcon />
-                </a>
-              ) : null}
-              {personal.email ? (
-                <a
-                  href={`mailto:${personal.email}`}
-                  className="hero__social"
-                  aria-label="Email"
-                >
-                  <MailIcon />
-                </a>
-              ) : null}
-            </div>
+
           </div>
 
           <div className="hero__photo-wrap">

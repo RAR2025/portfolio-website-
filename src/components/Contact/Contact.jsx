@@ -27,7 +27,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section" ref={ref}>
+    <section id="contact" className="section section--lg" ref={ref}>
       <div className={`container reveal${visible ? ' reveal--visible' : ''}`}>
         <span className="section-title-eyebrow">Contact</span>
         <h2 className="section-title">Let's build something together</h2>

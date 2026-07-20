@@ -12,8 +12,6 @@ export const NAV_ITEMS = [
 
 export const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 
-export const THEME_STORAGE_KEY = 'portfolio-theme';
-
 export const BREAKPOINTS = {
   desktop: 1024,
   tablet: 768,
