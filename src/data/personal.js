@@ -1,4 +1,4 @@
-import profilePhoto from '../assets/images/my-photo-for-website.jpeg';
+import profilePhoto from '../assets/images/GPT animated my photo.png';
 
 export const personal = {
   name: 'Ruturaj Amit Rajwade',

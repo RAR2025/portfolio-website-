@@ -1,31 +1,10 @@
 export const education = [
   {
-    id: 'edu-btechsem1',
+    id: 'edu-btech',
     degree: 'Bachelor of Technology in Computer Science and Engineering',
     institution: 'Vivekanand Education Society’s Institute of Technology (VESIT)',
     duration: '2024 — 2028',
-    score: '10 SGPI (sem 1)',
-  },
-  {
-    id: 'edu-btechsem2',
-    degree: 'Bachelor of Technology in Computer Science and Engineering',
-    institution: 'Vivekanand Education Society’s Institute of Technology (VESIT)',
-    duration: '2024 — 2028',
-    score: '9.82 SGPI (sem 2)',
-  },
-  {
-    id: 'edu-btechsem3',
-    degree: 'Bachelor of Technology in Computer Science and Engineering',
-    institution: 'Vivekanand Education Society’s Institute of Technology (VESIT)',
-    duration: '2024 — 2028',
-    score: '9.8 SGPI (sem 3)',
-  },
-  {
-    id: 'edu-btechsem4',
-    degree: 'Bachelor of Technology in Computer Science and Engineering',
-    institution: 'Vivekanand Education Society’s Institute of Technology (VESIT)',
-    duration: '2024 — 2028',
-    score: '9.08 SGPI (sem 4)',
+    score: '9.664 CGPA',
   },
   {
     id: 'edu-class12',
