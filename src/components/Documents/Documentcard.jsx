@@ -1,10 +1,28 @@
+import { useEffect, useState } from 'react';
+import documentIcon from '../../assets/icons/document.svg';
+
 export function Documentcard({ document }) {
-  const isPdf = document.thumbnail?.toLowerCase().endsWith(".pdf");
+  const isPdf = document.thumbnail?.toLowerCase().endsWith('.pdf');
+  const [isIosSafari, setIsIosSafari] = useState(false);
+
+  useEffect(() => {
+    if (typeof navigator === 'undefined') return;
+    const ua = navigator.userAgent;
+    const isIOS =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (ua.includes('Mac') && navigator.maxTouchPoints > 1);
+    const isWebkit = /WebKit/.test(ua);
+    const isChrome = /CriOS/.test(ua);
+    const isFirefox = /FxiOS/.test(ua);
+    setIsIosSafari(isIOS && isWebkit && !isChrome && !isFirefox);
+  }, []);
+
+  const hideInlinePdf = isPdf && isIosSafari;
 
   return (
     <article className="document-card">
       <div className="document-card__thumb">
-        {document.thumbnail ? (
+        {document.thumbnail && !hideInlinePdf ? (
           isPdf ? (
             <iframe
               src={`${document.thumbnail}#toolbar=0&navpanes=0&scrollbar=0`}
@@ -19,6 +37,17 @@ export function Documentcard({ document }) {
               loading="lazy"
             />
           )
+        ) : hideInlinePdf ? (
+          <a
+            className="document-card__pdf-fallback"
+            href={document.fileUrl || document.thumbnail}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${document.title} PDF`}
+          >
+            <img src={documentIcon} alt="" className="document-card__pdf-icon" />
+            <span className="document-card__pdf-cta">Tap to open PDF</span>
+          </a>
         ) : null}
       </div>
 

@@ -1,9 +1,9 @@
-import emailProjectThumbnail from '../assets/images/email-project.png';
-import questionMeThumbnail from '../assets/images/question-me-1-0-project.png';
-import newsTelegramBotThumbnail from '../assets/images/news-telegram-bot.png';
-import garbageProjectThumbnail from '../assets/images/garbage-project.png';
-import ecomProjectThumbnail from '../assets/images/ecom-project.png';
-import fitnessTrackerThumbnail from '../assets/images/fitness-tracker-project.png';
+import emailProjectThumbnail from '../assets/images/email-project.jpg';
+import questionMeThumbnail from '../assets/images/question-me-1-0-project.jpg';
+import newsTelegramBotThumbnail from '../assets/images/news-telegram-bot.jpg';
+import garbageProjectThumbnail from '../assets/images/garbage-project.jpg';
+import ecomProjectThumbnail from '../assets/images/ecom-project.jpg';
+import fitnessTrackerThumbnail from '../assets/images/fitness-tracker-project.jpg';
 
 export const projects = [
   {

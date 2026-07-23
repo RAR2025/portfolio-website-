@@ -1,4 +1,4 @@
-import profilePhoto from '../assets/images/GPT animated my photo.png';
+import profilePhoto from '../assets/images/GPT animated my photo.jpg';
 
 export const personal = {
   name: 'Ruturaj Amit Rajwade',
@@ -34,7 +34,6 @@ export const personal = {
   futureGoals:
     'Develop Something that world has never seen before....',
   email: 'ruturaj.rajwade@gmail.com',
-  phone: '+91 7718979134',
   location: 'Mumbai, India',
   resumeUrl: 'https://docs.google.com/document/d/1EPR84TF2ctHXiXErZgIPFqNjkSHmnRM7cMI-n4FqdUk/edit?usp=sharing',
   photo: profilePhoto,
