@@ -1,3 +1,5 @@
+import { useState, useCallback } from 'react';
+import SplashScreen from './components/SplashScreen/SplashScreen';
 import { Navbar } from './components/navbar/Navbar';
 import { Hero } from './components/hero/Hero';
 import { About } from './components/about/About';
@@ -11,21 +13,30 @@ import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleSplashFinish = useCallback(() => {
+    setShowSplash(false);
+  }, []);
+
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Education />
-        <Techstack />
-        <CodingProfiles />
-        <Projects />
-        <Achievements />
-        <Document />
-        <Contact />
-      </main>
-      <Footer />
+      {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
+      <div className={`app-content${!showSplash ? ' app-content--visible' : ''}`}>
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Education />
+          <Techstack />
+          <CodingProfiles />
+          <Projects />
+          <Achievements />
+          <Document />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
