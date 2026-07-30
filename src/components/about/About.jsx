@@ -8,7 +8,7 @@ export function About() {
     <section id="about" className="section section--md section--alt" ref={ref}>
       <div className={`container reveal${visible ? ' reveal--visible' : ''}`}>
         <span className="section-title-eyebrow">About</span>
-        <h2 className="section-title section-title--left">A bit about me</h2>
+        <h2 className="section-title section-title--left">Behind the Code</h2>
         <p className="section-subtitle section-subtitle--left">
           Curious learner, builder, and lifelong student of computer science.
         </p>
