@@ -1,4 +1,4 @@
-export function ProfileCard({ profile }) {
+export function ProfileCard({ profile, stats, isLive }) {
   const Logo = profile.logo;
 
   return (
@@ -12,6 +12,13 @@ export function ProfileCard({ profile }) {
           <h3 className="profile-card__platform">{profile.platform}</h3>
           <p className="profile-card__username">@{profile.username}</p>
         </div>
+
+        {isLive && (
+          <span className="profile-card__live">
+            <span className="profile-card__live-dot" />
+            Live
+          </span>
+        )}
       </div>
 
       {profile.description && (
@@ -20,9 +27,9 @@ export function ProfileCard({ profile }) {
         </p>
       )}
 
-      {profile.stats?.length > 0 && (
+      {stats?.length > 0 && (
         <div className="profile-card__stats">
-          {profile.stats.map((stat, index) => (
+          {stats.map((stat, index) => (
             <div key={index}>
               <div className="profile-card__stat-value">{stat.value}</div>
               <div className="profile-card__stat-label">{stat.label}</div>

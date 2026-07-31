@@ -1,17 +1,30 @@
 import { SiLeetcode, SiCodechef } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 
+const LEETCODE_USER = "RAR2025";
+const GITHUB_USER = "RAR2025";
+
 export const profiles = [
   {
     id: "leetcode",
     platform: "LeetCode",
-    username: "RAR2025",
-    profileUrl: "https://leetcode.com/u/RAR2025/",
+    username: LEETCODE_USER,
+    profileUrl: `https://leetcode.com/u/${LEETCODE_USER}/`,
     logo: SiLeetcode,
-    stats: [
+    api: {
+      url: `https://leetcode-api-faisalshohag.vercel.app/${LEETCODE_USER}`,
+      stats: (data) => [
+        { label: "Problems Solved", value: data.totalSolved },
+        { label: "Easy", value: data.easySolved },
+        { label: "Medium", value: data.mediumSolved },
+        { label: "Hard", value: data.hardSolved },
+      ],
+    },
+    fallback: [
       { label: "Problems Solved", value: "177" },
-      { label: "Contest Rating", value: "1406" },
-      { label: "Rank", value: "925929" },
+      { label: "Easy", value: "107" },
+      { label: "Medium", value: "90" },
+      { label: "Hard", value: "18" },
     ],
   },
   {
@@ -27,11 +40,21 @@ export const profiles = [
   {
     id: "github",
     platform: "GitHub",
-    username: "RAR2025",
-    profileUrl: "https://github.com/RAR2025",
+    username: GITHUB_USER,
+    profileUrl: `https://github.com/${GITHUB_USER}`,
     logo: FaGithub,
-    stats: [
-      { label: "Contributions", value: "501" },
+    api: {
+      url: `https://api.github.com/users/${GITHUB_USER}`,
+      stats: (data) => [
+        { label: "Public Repos", value: data.public_repos },
+        { label: "Followers", value: data.followers },
+        { label: "Following", value: data.following },
+      ],
+    },
+    fallback: [
+      { label: "Public Repos", value: "18" },
+      { label: "Followers", value: "11" },
+      { label: "Following", value: "15" },
     ],
   },
 ];
