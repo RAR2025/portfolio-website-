@@ -1,40 +1,5 @@
 export const documents = [
   {
-    id: 'doc-10th',
-    title: 'Class 10th Marksheet',
-    type: 'Marksheet',
-    fileUrl: '/documents/ssc-marksheet.jpg',
-    thumbnail: '/documents/ssc-marksheet.jpg',
-  },
-  {
-    id: 'doc-12th',
-    title: 'Class 12th Marksheet',
-    type: 'Marksheet',
-    fileUrl: '/documents/hsc-marksheet.jpg',
-    thumbnail: '/documents/hsc-marksheet.jpg',
-  },
-  {
-    id: 'doc-btech-sem1',
-    title: 'B.Tech — Semester 1 Grade Card',
-    type: 'Marksheet',
-    fileUrl: '/documents/sem-1-marksheet.jpg',
-    thumbnail: '/documents/sem-1-marksheet.jpg',
-  },
-  {
-    id: 'doc-btech-sem2',
-    title: 'B.Tech — Semester 2 Grade Card',
-    type: 'Marksheet',
-    fileUrl: '/documents/sem-2-marksheet.jpg',
-    thumbnail: '/documents/sem-2-marksheet.jpg',
-  },
-  {
-    id: 'doc-btech-sem3',
-    title: 'B.Tech — Semester 3 Grade Card',
-    type: 'Marksheet',
-    fileUrl: '/documents/sem-3-marksheet.jpg',
-    thumbnail: '/documents/sem-3-marksheet.jpg',
-  },
-  {
     id: 'doc-claude-101',
     title: 'Claude 101 Certificate',
     type: 'Certificate',

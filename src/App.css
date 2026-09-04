@@ -237,11 +237,11 @@ h4 {
 .section {
   padding-block: clamp(4rem, 8vw, 6rem);
   scroll-margin-top: var(--nav-height);
-  background-color: var(--bg-surface);
+  background-color: var(--bg-base);
 }
 
 .section--alt {
-  background-color: var(--accent-soft);
+  background-color: var(--bg-base);
 }
 
 /* ---------- 5. Buttons ---------- */
