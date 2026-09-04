@@ -1,5 +1,7 @@
 import { personal } from '../../data/personal';
+import { blogs } from '../../data/blogs';
 import { useReveal } from '../../hooks/useReveal';
+import { BlogCard } from './BlogCard';
 
 export function About() {
   const [ref, visible] = useReveal();
@@ -14,26 +16,19 @@ export function About() {
         </p>
         <div className="about__grid">
 
-          <div className="about__bio">
-            {personal.bio.map((paragraph, index) => {
-              const dotIndex = paragraph.indexOf('. ');
-              const hasLead = dotIndex !== -1 && dotIndex < 120;
-              const lead = hasLead ? paragraph.slice(0, dotIndex + 1) : '';
-              const rest = hasLead ? paragraph.slice(dotIndex + 1) : paragraph;
-              return (
-                <p key={index}>
-                  {hasLead ? <span className="about__bio-lead">{lead}</span> : null}
-                  {rest}
-                </p>
-              );
-            })}
+          <div className="about__blogs">
+            <h3 className="about__subhead">Blogs</h3>
+            <div className="about__blog-list">
+              {blogs.map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
+            </div>
           </div>
 
           <aside className="about__sidebar">
 
             <div className="about__panel">
               <h3 className="about__subhead">Interests</h3>
-
               <div className="about__chips">
                 {personal.interests.map((interest) => (
                   <span key={interest} className="chip">
@@ -45,7 +40,6 @@ export function About() {
 
             <div className="about__panel">
               <h3 className="about__subhead">Strengths</h3>
-
               <div className="about__chips">
                 {personal.strengths.map((strength) => (
                   <span key={strength} className="chip">

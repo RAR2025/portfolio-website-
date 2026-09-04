@@ -25,7 +25,7 @@ export function Documentcard({ document }) {
         {document.thumbnail && !hideInlinePdf ? (
           isPdf ? (
             <iframe
-              src={`${document.thumbnail}#toolbar=0&navpanes=0&scrollbar=0`}
+              src={`${document.thumbnail}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
               title={`${document.title} preview`}
               loading="lazy"
               className="document-card__pdf"

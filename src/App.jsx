@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SplashScreen from './components/SplashScreen/SplashScreen';
 import { Navbar } from './components/navbar/Navbar';
 import { Hero } from './components/hero/Hero';
@@ -11,6 +12,23 @@ import { Achievements } from './components/Achievements/Achievements';
 import { Document } from './components/Documents/Document';
 import { Contact } from './components/Contact/Contact';
 import { Footer } from './components/Footer/Footer';
+import { BlogPage } from './components/BlogPage/BlogPage';
+
+function HomePage() {
+  return (
+    <main>
+      <Hero />
+      <About />
+      <Education />
+      <Techstack />
+      <CodingProfiles />
+      <Projects />
+      <Achievements />
+      <Document />
+      <Contact />
+    </main>
+  );
+}
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -20,24 +38,17 @@ function App() {
   }, []);
 
   return (
-    <>
+    <BrowserRouter>
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
       <div className={`app-content${!showSplash ? ' app-content--visible' : ''}`}>
         <Navbar />
-        <main>
-          <Hero />
-          <About />
-          <Education />
-          <Techstack />
-          <CodingProfiles />
-          <Projects />
-          <Achievements />
-          <Document />
-          <Contact />
-        </main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog/:id" element={<BlogPage />} />
+        </Routes>
         <Footer />
       </div>
-    </>
+    </BrowserRouter>
   );
 }
 
