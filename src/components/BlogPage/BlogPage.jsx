@@ -1,10 +1,9 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { blogs } from '../../data/blogs';
 import { useEffect } from 'react';
 
 export function BlogPage() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const blog = blogs.find((b) => b.id === id);
 
   useEffect(() => {
@@ -16,9 +15,9 @@ export function BlogPage() {
       <section className="section">
         <div className="container">
           <p>Blog post not found.</p>
-          <button className="btn btn--ghost" onClick={() => navigate(-1)}>
-            Go Back
-          </button>
+          <Link className="btn btn--ghost" to="/">
+            Back to Home
+          </Link>
         </div>
       </section>
     );
@@ -43,9 +42,9 @@ export function BlogPage() {
             ))}
           </div>
         </article>
-        <button className="btn btn--ghost blog-page__back" onClick={() => navigate(-1)}>
+        <Link className="btn btn--ghost blog-page__back" to="/">
           &larr; Back
-        </button>
+        </Link>
       </div>
     </section>
   );

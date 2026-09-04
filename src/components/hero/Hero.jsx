@@ -19,7 +19,7 @@ export function Hero() {
         <div className="hero__inner">
           <div className="hero__content">
             <span className="hero__greeting">Hello, I'm</span>
-            <h1 className="hero__title">{personal.name}</h1>
+            <h1 className="hero__title gradient-text">{personal.name}</h1>
             <p className="hero__subtitle">{personal.title}</p>
             <p className="hero__tagline">{personal.tagline}</p>
 
@@ -47,12 +47,22 @@ export function Hero() {
           </div>
 
           <div className="hero__photo-wrap">
-            <div className="hero__photo">
-              <img
-                src={imgSrc}
-                alt={`${personal.name} profile photo`}
-                onError={() => setImgSrc(FALLBACK_PHOTO)}
+            <div className="hero__photo-box">
+              <span
+                className="hero__photo-ring hero__photo-ring--1"
+                aria-hidden="true"
               />
+              <span
+                className="hero__photo-ring hero__photo-ring--2"
+                aria-hidden="true"
+              />
+              <div className="hero__photo">
+                <img
+                  src={imgSrc}
+                  alt={`${personal.name} profile photo`}
+                  onError={() => setImgSrc(FALLBACK_PHOTO)}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -21,10 +21,10 @@ export function AchievementCard({ achievement }) {
           {achievement.date ? <span>{achievement.date}</span> : null}
           {achievement.certificate ? (
             <a
+              className="achievement-card__cert"
               href={achievement.certificate}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ marginLeft: '0.75rem', color: 'var(--accent-primary)' }}
             >
               View Certificate
             </a>

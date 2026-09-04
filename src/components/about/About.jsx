@@ -1,10 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import { personal } from '../../data/personal';
 import { blogs } from '../../data/blogs';
 import { useReveal } from '../../hooks/useReveal';
 import { BlogCard } from './BlogCard';
 
+const BLOG_PREVIEW_COUNT = 3;
+
 export function About() {
   const [ref, visible] = useReveal();
+  const navigate = useNavigate();
+  const previewBlogs = blogs.slice(0, BLOG_PREVIEW_COUNT);
+  const hasMoreBlogs = blogs.length > BLOG_PREVIEW_COUNT;
 
   return (
     <section id="about" className="section section--md section--alt" ref={ref}>
@@ -19,10 +25,20 @@ export function About() {
           <div className="about__blogs">
             <h3 className="about__subhead">Blogs</h3>
             <div className="about__blog-list">
-              {blogs.map((blog) => (
+              {previewBlogs.map((blog) => (
                 <BlogCard key={blog.id} blog={blog} />
               ))}
             </div>
+
+            {hasMoreBlogs && (
+              <button
+                type="button"
+                className="btn btn--ghost btn--sm about__blog-all"
+                onClick={() => navigate('/blogs')}
+              >
+                View all blogs &rarr;
+              </button>
+            )}
           </div>
 
           <aside className="about__sidebar">
@@ -50,7 +66,7 @@ export function About() {
             </div>
 
             <div className="about__panel">
-              <h3 className="about__subhead">Future Goals</h3>
+              <h3 className="about__subhead">Future Goal</h3>
               <p>{personal.futureGoals}</p>
             </div>
 

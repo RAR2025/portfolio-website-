@@ -14,9 +14,24 @@ export const LeetCodeIcon = () => <SiLeetcode size={18} />;
 export function Contact() {
   const [ref, visible] = useReveal();
   const [copied, setCopied] = useState(false);
+  const [ripples, setRipples] = useState([]);
 
-  const handleCopy = async () => {
+  const addRipple = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const ripple = {
+      id: Date.now() + Math.random(),
+      x: event.clientX - rect.left - 20,
+      y: event.clientY - rect.top - 20,
+    };
+    setRipples((prev) => [...prev, ripple]);
+    setTimeout(() => {
+      setRipples((prev) => prev.filter((r) => r.id !== ripple.id));
+    }, 650);
+  };
+
+  const handleCopy = async (event) => {
     if (!personal.email) return;
+    addRipple(event);
     try {
       await navigator.clipboard.writeText(personal.email);
       setCopied(true);
@@ -51,38 +66,52 @@ export function Contact() {
             {personal.email ? (
               <button
                 type="button"
-                className="btn btn--ghost"
+                className={`btn btn--ghost btn--copy${
+                  copied ? ' btn--copy--success' : ''
+                }`}
                 onClick={handleCopy}
               >
                 {copied ? 'Copied!' : 'Copy Email'}
+                {ripples.map((ripple) => (
+                  <span
+                    key={ripple.id}
+                    className="ripple"
+                    style={{ left: ripple.x, top: ripple.y }}
+                  />
+                ))}
               </button>
             ) : null}
           </div>
 
           <div className="contact__socials">
             {personal.socials.github1 ? (
-              <a href={personal.socials.github1} className="contact__social" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <a href={personal.socials.github1} className="contact__social contact__social--github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon />
+                <span className="contact__social-label">GitHub</span>
               </a>
             ) : null}
             {personal.socials.github2 ? (
-              <a href={personal.socials.github2} className="contact__social" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <a href={personal.socials.github2} className="contact__social contact__social--github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon />
+                <span className="contact__social-label">GitHub</span>
               </a>
             ) : null}
             {personal.socials.linkedin ? (
-              <a href={personal.socials.linkedin} className="contact__social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <a href={personal.socials.linkedin} className="contact__social contact__social--linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <LinkedInIcon />
+                <span className="contact__social-label">LinkedIn</span>
               </a>
             ) : null}
             {personal.socials.twitter ? (
-              <a href={personal.socials.twitter} className="contact__social" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+              <a href={personal.socials.twitter} className="contact__social contact__social--twitter" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                 <TwitterIcon />
+                <span className="contact__social-label">Twitter</span>
               </a>
             ) : null}
             {personal.socials.leetcode ? (
-              <a href={personal.socials.leetcode} className="contact__social" aria-label="LeetCode" target="_blank" rel="noopener noreferrer">
+              <a href={personal.socials.leetcode} className="contact__social contact__social--leetcode" aria-label="LeetCode" target="_blank" rel="noopener noreferrer">
                 <LeetCodeIcon />
+                <span className="contact__social-label">LeetCode</span>
               </a>
             ) : null}
           </div>

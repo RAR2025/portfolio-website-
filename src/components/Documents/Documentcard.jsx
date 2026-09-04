@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react';
 import documentIcon from '../../assets/icons/document.svg';
 
+function isTouchOrSmallScreen() {
+  if (typeof window === 'undefined') return false;
+  const touch = navigator.maxTouchPoints > 0;
+  const small = window.matchMedia('(max-width: 768px)').matches;
+  return touch || small;
+}
+
 export function Documentcard({ document }) {
   const isPdf = document.thumbnail?.toLowerCase().endsWith('.pdf');
-  const [isIosSafari, setIsIosSafari] = useState(false);
+  const [hideInlinePdf, setHideInlinePdf] = useState(false);
 
   useEffect(() => {
+    if (!isPdf) return;
     if (typeof navigator === 'undefined') return;
     const ua = navigator.userAgent;
     const isIOS =
@@ -14,15 +22,16 @@ export function Documentcard({ document }) {
     const isWebkit = /WebKit/.test(ua);
     const isChrome = /CriOS/.test(ua);
     const isFirefox = /FxiOS/.test(ua);
-    setIsIosSafari(isIOS && isWebkit && !isChrome && !isFirefox);
-  }, []);
+    const isIosSafari = isIOS && isWebkit && !isChrome && !isFirefox;
+    setHideInlinePdf(isIosSafari || isTouchOrSmallScreen());
+  }, [isPdf]);
 
-  const hideInlinePdf = isPdf && isIosSafari;
+  const showFallback = isPdf && hideInlinePdf;
 
   return (
     <article className="document-card">
       <div className="document-card__thumb">
-        {document.thumbnail && !hideInlinePdf ? (
+        {document.thumbnail && !showFallback ? (
           isPdf ? (
             <iframe
               src={`${document.thumbnail}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
@@ -37,7 +46,7 @@ export function Documentcard({ document }) {
               loading="lazy"
             />
           )
-        ) : hideInlinePdf ? (
+        ) : showFallback ? (
           <a
             className="document-card__pdf-fallback"
             href={document.fileUrl || document.thumbnail}

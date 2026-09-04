@@ -1,4 +1,10 @@
 import { useEffect, useRef } from 'react';
+import DecryptedText from '../DecryptedText/DecryptedText';
+
+const PREFIX_TEXT = 'Not merely a coder, but a';
+const HIGHLIGHT_TEXT = 'digital artist';
+const FULL_TEXT = `${PREFIX_TEXT} ${HIGHLIGHT_TEXT}`;
+const SEQUENCE_SPEED = 90;
 
 function SplashScreen({ onFinish }) {
   const canvasRef = useRef(null);
@@ -8,6 +14,11 @@ function SplashScreen({ onFinish }) {
   const exitingRef = useRef(false);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      onFinishRef.current();
+      return undefined;
+    }
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let animId;
@@ -41,7 +52,9 @@ function SplashScreen({ onFinish }) {
       };
     }
 
-    const particles = Array.from({ length: 90 }, () => createParticle());
+    const isCompact = Math.min(window.innerWidth, window.innerHeight) < 768;
+    const particleCount = isCompact ? 42 : 90;
+    const particles = Array.from({ length: particleCount }, () => createParticle());
 
     function drawShape(ctx, x, y, size, type, rotation, hue, alpha) {
       ctx.save();
@@ -53,14 +66,26 @@ function SplashScreen({ onFinish }) {
       } else if (type === 4) {
         for (let i = 0; i < 3; i++) {
           const a = (i / 3) * Math.PI * 2 - Math.PI / 2;
-          i === 0 ? ctx.moveTo(Math.cos(a) * size, Math.sin(a) * size) : ctx.lineTo(Math.cos(a) * size, Math.sin(a) * size);
+          const x = Math.cos(a) * size;
+          const y = Math.sin(a) * size;
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
         }
         ctx.closePath();
       } else {
         const sides = type + 2;
         for (let i = 0; i < sides; i++) {
           const a = (i / sides) * Math.PI * 2 - Math.PI / 2;
-          i === 0 ? ctx.moveTo(Math.cos(a) * size, Math.sin(a) * size) : ctx.lineTo(Math.cos(a) * size, Math.sin(a) * size);
+          const x = Math.cos(a) * size;
+          const y = Math.sin(a) * size;
+          if (i === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
         }
         ctx.closePath();
       }
@@ -73,13 +98,19 @@ function SplashScreen({ onFinish }) {
     }
 
     function drawBackground(time) {
-      ctx.fillStyle = '#060701';
+      const elapsed = (time - startTime) / 1000;
+      const hueProgress = Math.min(elapsed / 2.4, 1);
+      const goldHue = 45;
+      const cyanHue = 190;
+      const hue = goldHue + (cyanHue - goldHue) * hueProgress;
+
+      ctx.fillStyle = '#0A0E27';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const grad = ctx.createRadialGradient(cx(), cy(), 0, cx(), cy(), Math.max(canvas.width, canvas.height) * 0.7);
-      grad.addColorStop(0, 'rgba(255, 215, 0, 0.06)');
-      grad.addColorStop(0.3, 'rgba(184, 155, 111, 0.03)');
-      grad.addColorStop(1, 'rgba(6, 7, 1, 0)');
+      grad.addColorStop(0, `hsla(${hue}, 80%, 55%, 0.07)`);
+      grad.addColorStop(0.3, `hsla(${hue + 30}, 70%, 45%, 0.035)`);
+      grad.addColorStop(1, 'rgba(10, 14, 39, 0)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
@@ -125,7 +156,13 @@ function SplashScreen({ onFinish }) {
         ctx.beginPath();
         for (let j = 0; j < sides; j++) {
           const a = (j / sides) * Math.PI * 2 - Math.PI / 2;
-          j === 0 ? ctx.moveTo(Math.cos(a) * size, Math.sin(a) * size) : ctx.lineTo(Math.cos(a) * size, Math.sin(a) * size);
+          const x = Math.cos(a) * size;
+          const y = Math.sin(a) * size;
+          if (j === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
         }
         ctx.closePath();
         ctx.strokeStyle = `rgba(255, 215, 0, ${0.03 + 0.025 * Math.sin(elapsed * 0.08 + i * 0.7)})`;
@@ -214,12 +251,14 @@ function SplashScreen({ onFinish }) {
       drawPulsingRing(time);
 
       const scatterSpeed = exitingRef.current ? 8 : 1;
+      const elapsed = (time - startTime) / 1000;
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.angle += p.speed * 0.005 * scatterSpeed;
         p.rotation += p.rotSpeed;
         p.pulse += p.pulseSpeed;
+        p.hue = Math.min(190, 45 + elapsed * 60);
 
         if (exitingRef.current) {
           p.radius += Math.abs(p.speed) * 3;
@@ -236,7 +275,7 @@ function SplashScreen({ onFinish }) {
         }
       }
 
-      if (!exitingRef.current) {
+      if (!exitingRef.current && !isCompact) {
         for (let i = 0; i < particles.length; i++) {
           const p1 = particles[i];
           const x1 = cx() + Math.cos(p1.angle) * p1.radius;
@@ -282,7 +321,7 @@ function SplashScreen({ onFinish }) {
         containerRef.current.classList.add('splash--exit');
       }
       setTimeout(() => onFinishRef.current(), 800);
-    }, 2500);
+    }, 3850);
 
     return () => {
       cancelAnimationFrame(animId);
@@ -295,7 +334,21 @@ function SplashScreen({ onFinish }) {
     <div ref={containerRef} className="splash">
       <canvas ref={canvasRef} className="splash__canvas" />
       <div className="splash__content">
-        <p className="splash__line">Not merely a coder, but a <span className="splash__highlight">digital artist</span></p>
+<p className="splash__line">
+          <DecryptedText
+            text={FULL_TEXT}
+            animateOn="view"
+            revealDirection="start"
+            sequential
+            speed={SEQUENCE_SPEED}
+            maxIterations={2}
+            characters="ABCD1234!?"
+            parentClassName="splash__decrypt"
+            getRevealedClassName={(index) =>
+              index > PREFIX_TEXT.length ? 'splash__highlight' : ''
+            }
+          />
+        </p>
       </div>
     </div>
   );

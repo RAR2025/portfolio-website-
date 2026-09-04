@@ -50,6 +50,14 @@ function handleNavClick(event, id) {
 export function Navbar() {
   const activeId = useScrollSpy(NAV_ITEMS.map((item) => item.id));
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -66,7 +74,10 @@ export function Navbar() {
 
   return (
     <>
-      <header className="navbar" role="banner">
+      <header
+        className={`navbar${isScrolled ? ' navbar--scrolled' : ''}`}
+        role="banner"
+      >
         <div className="container navbar__inner">
           <a
             href="#home"
@@ -77,7 +88,7 @@ export function Navbar() {
             <span className="navbar__brand-mark" aria-hidden="true">
               RAR
             </span>
-            <span>Ruturaj Rajwade</span>
+            <span className="navbar__brand-name">Ruturaj Rajwade</span>
           </a>
 
           <nav className="navbar__list" aria-label="Primary navigation">

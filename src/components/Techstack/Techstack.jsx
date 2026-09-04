@@ -6,7 +6,7 @@ export function Techstack() {
   const [ref, visible] = useReveal();
 
   return (
-    <section id="skills" className="section section--alt" ref={ref}>
+    <section id="skills" className="section" ref={ref}>
       <div className={`container reveal${visible ? ' reveal--visible' : ''}`}>
         <span className="section-title-eyebrow">Tech Stack</span>
         <h2 className="section-title">Tools I work with</h2>

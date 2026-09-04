@@ -6,7 +6,7 @@ export function Projects() {
   const [ref, visible] = useReveal();
 
   return (
-    <section id="projects" className="section section--alt" ref={ref}>
+    <section id="projects" className="section" ref={ref}>
       <div className={`container reveal${visible ? ' reveal--visible' : ''}`}>
         <span className="section-title-eyebrow">Projects</span>
         <h2 className="section-title">Things I've built</h2>
