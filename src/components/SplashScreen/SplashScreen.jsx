@@ -331,10 +331,10 @@ function SplashScreen({ onFinish }) {
   }, []);
 
   return (
-    <div ref={containerRef} className="splash">
-      <canvas ref={canvasRef} className="splash__canvas" />
-      <div className="splash__content">
-<p className="splash__line">
+    <div ref={containerRef} className="splash fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0e27]">
+      <canvas ref={canvasRef} className="splash__canvas pointer-events-none absolute inset-0 h-full w-full" />
+      <div className="splash__content relative z-[1] flex flex-col items-center text-center">
+<p className="splash__line m-0 max-w-[90vw] px-4 font-[Literata,Georgia,serif] leading-[1.3] text-[#FAFBFF]">
           <DecryptedText
             text={FULL_TEXT}
             animateOn="view"

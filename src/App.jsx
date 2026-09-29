@@ -45,7 +45,13 @@ function App() {
       <InteractiveGrid />
       <FloatingBackdrop />
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
-      <div className={`app-content${!showSplash ? ' app-content--visible' : ''}`}>
+      <div
+        className={`transition-all duration-300 ${
+          showSplash
+            ? 'translate-y-4 opacity-0 animate-[appEnter_0.7s_ease-out_2.5s_forwards]'
+            : 'translate-y-0 opacity-100'
+        }`}
+      >
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

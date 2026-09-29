@@ -24,10 +24,18 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="footer" role="contentinfo">
-      <span ref={lineRef} className="footer__progress-line" aria-hidden="true" />
-      <div className="container footer__inner">
-        <p className="footer__copy">
+    <footer
+      role="contentinfo"
+      className="relative border-t border-[rgba(255,215,0,0.15)] bg-[rgba(26,28,46,0.45)] py-10 text-center backdrop-blur-xl"
+    >
+      <span
+        ref={lineRef}
+        aria-hidden="true"
+        style={{ width: 0 }}
+        className="absolute left-0 top-0 h-[2px] bg-[linear-gradient(90deg,#FFD700,#00D9FF)] shadow-[0_0_20px_rgba(0,217,255,0.4)]"
+      />
+      <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center gap-4 px-6 max-[480px]:px-4 relative z-[1]">
+        <p className="text-[clamp(0.85rem,0.8rem+0.2vw,0.92rem)] text-[#B8C5D6]">
           © {year} {personal.name}. All rights reserved.
         </p>
       </div>

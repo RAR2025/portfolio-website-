@@ -1,57 +1,40 @@
-import { useEffect, useState } from 'react';
 import { profiles } from '../../data/profiles';
 import { ProfileCard } from './ProfileCard';
 import { useReveal } from '../../hooks/useReveal';
 
 export function CodingProfiles() {
   const [ref, visible] = useReveal();
-  const [liveStats, setLiveStats] = useState({});
-
-  useEffect(() => {
-    let active = true;
-
-    profiles.forEach((profile) => {
-      if (!profile.api) return;
-
-      fetch(profile.api.url)
-        .then((res) => {
-          if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
-          return res.json();
-        })
-        .then((data) => {
-          if (!active) return;
-          setLiveStats((prev) => ({ ...prev, [profile.id]: profile.api.stats(data) }));
-        })
-        .catch(() => {
-          if (!active) return;
-        });
-    });
-
-    return () => {
-      active = false;
-    };
-  }, []);
 
   return (
-    <section id="profiles" className="section" ref={ref}>
-      <div className={`container reveal${visible ? ' reveal--visible' : ''}`}>
-        <span className="section-title-eyebrow">Coding Profiles</span>
-        <h2 className="section-title">Where I practise & compete</h2>
-        <p className="section-subtitle">
+    <section
+      id="profiles"
+      ref={ref}
+      className="relative scroll-mt-[72px] overflow-hidden bg-[#0A0E27] py-[clamp(2.5rem,5vw,4rem)]"
+    >
+      <div
+        className={`mx-auto w-full max-w-[1120px] px-6 max-[480px]:px-4 relative z-[1] transition-all duration-300 ${
+          visible ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+        }`}
+      >
+        <span className="mb-3 inline-block text-[clamp(0.75rem,0.7rem+0.2vw,0.82rem)] font-semibold uppercase tracking-[0.15em] text-[#FFD700] [text-shadow:0_0_12px_rgba(255,215,0,0.25)]">
+          Coding Profiles
+        </span>
+        <h2 className="mb-2 text-center font-[Literata,Georgia,serif] text-[clamp(1.4rem,1.1rem+1.2vw,1.85rem)] font-semibold text-[#FAFBFF]">
+          Where I practise &amp; compete
+        </h2>
+        <p className="mb-10 text-center text-[clamp(0.95rem,0.9rem+0.2vw,1rem)] text-[#B8C5D6]">
           Track records on competitive programming and open-source platforms.
         </p>
 
-        <div className="profiles__grid">
-          {profiles.map((profile) => {
-            const stats = profile.api
-              ? (liveStats[profile.id] ?? profile.fallback)
-              : profile.stats;
-            const isLive = profile.api && Boolean(liveStats[profile.id]);
-
-            return (
-              <ProfileCard key={profile.id} profile={profile} stats={stats} isLive={isLive} />
-            );
-          })}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {profiles.map((profile) => (
+            <ProfileCard
+              key={profile.id}
+              profile={profile}
+              stats={profile.stats}
+              isLive={false}
+            />
+          ))}
         </div>
       </div>
     </section>

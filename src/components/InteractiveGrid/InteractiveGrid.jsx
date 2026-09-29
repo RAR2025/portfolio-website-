@@ -283,5 +283,5 @@ export function InteractiveGrid({
     };
   }, [cellSize, baseColor, activeColor, proximity, shockRadius, shockStrength, resistance, returnDuration]);
 
-  return <canvas ref={canvasRef} className="interactive-grid" aria-hidden="true" />;
+  return <canvas ref={canvasRef} aria-hidden="true" className="interactive-grid pointer-events-none fixed inset-0 z-[1] h-full w-full" />;
 }

@@ -1,7 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --color-dark-primary: #0a0e27;
+  --color-dark-secondary: #1a1c2e;
+  --color-dark-tertiary: #12131f;
+  --color-dark-indigo: #1b1f3a;
+
+  --color-gold: #ffd700;
+  --color-cyan: #00d9ff;
+  --color-teal: #06d6a0;
+  --color-magenta: #9d4edd;
+  --color-bronze: #d4a574;
+
+  --color-text-primary: #fafbff;
+  --color-text-secondary: #b8c5d6;
+  --color-text-tertiary: #7a8596;
+}
+
 /* =================================================================
-   GLOBAL STYLES — Portfolio (Redesign v2)
-   Sophisticated maximalism: glass morphism, dynamic gold→cyan
-   gradient backgrounds, ambient animation.
+   GLOBAL STYLES — Portfolio (Tailwind v4)
+   Tailwind utilities + ported design tokens (colors/fonts identical).
+   Custom BEM classes below are preserved 1:1 for pixel-identical UI.
    Sections:
       1. Variables (New Design Tokens)
       2. Reset & Base
