@@ -5,7 +5,7 @@ export const personal = {
   name: 'Ruturaj Amit Rajwade',
   title: 'BTech CSE Student | Aspiring Software Engineer',
   tagline:
-    'Not merely a coder, but a digital artist.',
+    'Not merely a coder, but a Digital Artist.',
   interests: [
     'System Design',
     'Open Source',

@@ -3,6 +3,8 @@ import { personal } from '../../data/personal';
 import { useReveal } from '../../hooks/useReveal';
 import fallbackPhoto from '../../assets/images/profile.svg';
 
+const PROFILE_WEBP = '/images/profile-577.webp';
+
 const FALLBACK_PHOTO = fallbackPhoto;
 export function Hero() {
   const [ref, visible] = useReveal();
@@ -71,12 +73,19 @@ export function Hero() {
                 className="pointer-events-none absolute inset-0 m-auto hidden h-[calc(100%+90px)] w-[calc(100%+90px)] rounded-full border-[1.5px] border-[rgba(0,217,255,0.12)] animate-[ringSpinReverse_18s_linear_infinite] min-[481px]:block max-[768px]:animate-none"
               />
               <div className="relative h-full w-full rounded-xl bg-[conic-gradient(from_0deg,#FFD700,#00D9FF,#FFD700,#00D9FF,#FFD700)] p-[3px] shadow-[0_4px_16px_rgba(0,0,0,0.4),0_12px_32px_rgba(0,0,0,0.2)] transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(0,217,255,0.4)] max-[768px]:animate-none animate-[borderRotate_5s_linear_infinite]">
-                <img
-                  src={imgSrc}
-                  alt={`${personal.name} profile photo`}
-                  onError={() => setImgSrc(FALLBACK_PHOTO)}
-                  className="h-full w-full rounded-[10px] bg-[#1A1C2E] object-contain"
-                />
+                <picture>
+                  <source srcSet={PROFILE_WEBP} type="image/webp" />
+                  <img
+                    src={imgSrc}
+                    alt={`${personal.name} profile photo`}
+                    onError={() => setImgSrc(FALLBACK_PHOTO)}
+                    fetchpriority="high"
+                    decoding="async"
+                    width="577"
+                    height="759"
+                    className="h-full w-full rounded-[10px] bg-[#1A1C2E] object-contain"
+                  />
+                </picture>
               </div>
             </div>
           </div>

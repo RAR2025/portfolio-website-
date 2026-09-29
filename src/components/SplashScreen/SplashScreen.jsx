@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import DecryptedText from '../DecryptedText/DecryptedText';
 
 const PREFIX_TEXT = 'Not merely a coder, but a';
-const HIGHLIGHT_TEXT = 'digital artist';
+const HIGHLIGHT_TEXT = 'Digital Artist';
 const FULL_TEXT = `${PREFIX_TEXT} ${HIGHLIGHT_TEXT}`;
 const SEQUENCE_SPEED = 90;
 
